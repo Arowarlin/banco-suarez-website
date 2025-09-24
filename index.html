@@ -4,15 +4,610 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco Suarez - Tu Futuro Financiero</title>
-  <link rel="stylesheet" href="css/styles.css">
-<script src="js/script.js"></script>
+    <style>
+/* =============================================================================
+   BANCO SUAREZ WEBSITE - ESTILOS PRINCIPALES
+   Versión: 1.0.0
+   Desarrollado por: Arowarlin Suarez
+   Descripción: Estilos CSS integrados para el sitio web de Banco Suarez
+   ============================================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+/* =============================================================================
+   SCROLL INDICATOR
+   ============================================================================= */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #4ECDC4, #FF6B6B);
+    z-index: 9999;
+    transition: width 0.3s ease;
+}
+
+/* =============================================================================
+   HEADER STYLES
+   ============================================================================= */
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 280px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #1e3c72;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* =============================================================================
+   HERO SECTION
+   ============================================================================= */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 150px 0 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* =============================================================================
+   CONTENT CONTAINER
+   ============================================================================= */
+.content-container {
+    background: white;
+    min-height: 400px;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-display {
+    padding: 2rem;
+    background: white;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.content-display.active {
+    display: block;
+}
+
+.content-display h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    border-bottom: 3px solid #4ECDC4;
+    padding-bottom: 0.5rem;
+}
+
+.content-display h3 {
+    color: #34495e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.content-display h4 {
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.content-display p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+.features-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.features-list li {
+    padding: 0.5rem 0;
+    color: #555;
+    position: relative;
+    padding-left: 2rem;
+    line-height: 1.6;
+}
+
+.features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4ECDC4;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* =============================================================================
+   SERVICES SECTION
+   ============================================================================= */
+.services {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #4ECDC4;
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* =============================================================================
+   FOOTER STYLES
+   ============================================================================= */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #4ECDC4;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    padding: 0.3rem 0;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    color: #4ECDC4;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #95a5a6;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* =============================================================================
+   ANIMATIONS & KEYFRAMES
+   ============================================================================= */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================= */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #1e3c72;
+        flex-direction: column;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border-radius: 0 0 10px 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .content-display {
+        margin: 0.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 120px 0 80px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .content-display h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
+/* =============================================================================
+   LOADING ANIMATION
+   ============================================================================= */
+body.loading {
+    overflow: hidden;
+}
+
+body.loading::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e3c72;
+    z-index: 10000;
+    animation: fadeOut 0.5s ease 1s forwards;
+}
+
+body.loading::after {
+    content: 'Cargando Banco Suarez...';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    z-index: 10001;
+    animation: fadeOut 0.5s ease 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================================================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus styles */
+.nav-link:focus,
+.dropdown-item:focus,
+.cta-button:focus,
+.service-card:focus {
+    outline: 2px solid #4ECDC4;
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .hero {
+        background: #000000;
+    }
+    
+    .service-card {
+        border: 2px solid #333;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
 </head>
 <body class="loading">
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
     <header class="header">
         <div class="nav-container">
-            <div class="logo" onclick="showContent('conoce-mas')">Banco Suarez</div>
+            <div class="logo" onclick="showContent('conoce-mas')">💳 Banco Suarez</div>
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li class="nav-item">
@@ -94,7 +689,7 @@
                 </ul>
                 <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 4px solid #4ECDC4;">
                     <h4>💡 Innovación y Excelencia</h4>
-                    <p>Banco Suarez representa la fusión perfecta entre tradición bancaria y innovación tecnológica, ofreciendo soluciones financieras que se adaptan a las necesidades del siglo XXI.</p>
+                    <p>Banco Suarez representa la fusión perfecta entre tradición bancaria e innovación tecnológica, ofreciendo soluciones financieras que se adaptan a las necesidades del siglo XXI.</p>
                 </div>
             </div>
 
@@ -141,114 +736,7 @@
                 </div>
             </div>
 
-            <!-- Nueva Sección: Proyecto Académico -->
-            <div id="content-proyecto-academico" class="content-display">
-                <h2>🎓 Proyecto Académico - Banco Suarez</h2>
-                <p>Este proyecto representa la culminación de conocimientos adquiridos en la Licenciatura en Informática, demostrando competencias en desarrollo web, diseño de interfaces y programación funcional.</p>
-                
-                <h3>📋 Objetivos del Proyecto</h3>
-                <ul class="features-list">
-                    <li>Demostrar dominio de tecnologías web fundamentales (HTML5, CSS3, JavaScript)</li>
-                    <li>Implementar arquitectura de navegación inspirada en sitios bancarios profesionales</li>
-                    <li>Crear una experiencia de usuario intuitiva y moderna</li>
-                    <li>Desarrollar contenido original y estructurado para servicios financieros</li>
-                    <li>Aplicar principios de responsive design para múltiples dispositivos</li>
-                    <li>Integrar animaciones y efectos visuales profesionales</li>
-                </ul>
-
-                <h3>🎯 Metodología de Desarrollo</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-                    <div style="padding: 1.5rem; border: 1px solid #e9ecef; border-radius: 10px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                        <h4>1️⃣ Análisis e Investigación</h4>
-                        <p>Estudio de la arquitectura web de Banreservas como referencia, análisis de mejores prácticas en UX bancario.</p>
-                    </div>
-                    <div style="padding: 1.5rem; border: 1px solid #e9ecef; border-radius: 10px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                        <h4>2️⃣ Diseño y Planificación</h4>
-                        <p>Creación de wireframes, definición de paleta de colores, estructura de navegación y contenido.</p>
-                    </div>
-                    <div style="padding: 1.5rem; border: 1px solid #e9ecef; border-radius: 10px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                        <h4>3️⃣ Desarrollo Frontend</h4>
-                        <p>Implementación con HTML semántico, CSS moderno con Flexbox/Grid, JavaScript funcional.</p>
-                    </div>
-                    <div style="padding: 1.5rem; border: 1px solid #e9ecef; border-radius: 10px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                        <h4>4️⃣ Testing y Optimización</h4>
-                        <p>Pruebas de responsividad, optimización de rendimiento, validación de código.</p>
-                    </div>
-                </div>
-
-                <h3>🏆 Logros del Proyecto</h3>
-                <ul class="features-list">
-                    <li>Sitio web 100% funcional con navegación dinámica</li>
-                    <li>Diseño responsive perfecto en todos los dispositivos</li>
-                    <li>Código limpio y bien estructurado siguiendo mejores prácticas</li>
-                    <li>15+ secciones de contenido financiero detallado</li>
-                    <li>Implementación de efectos visuales y animaciones profesionales</li>
-                    <li>Arquitectura escalable para futuras mejoras</li>
-                </ul>
-            </div>
-
-            <!-- Nueva Sección: Tecnologías -->
-            <div id="content-tecnologias" class="content-display">
-                <h2>⚙️ Tecnologías y Herramientas Utilizadas</h2>
-                <p>Banco Suarez ha sido desarrollado utilizando tecnologías web modernas y estándares de la industria, garantizando un producto de alta calidad y rendimiento óptimo.</p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                    <div style="padding: 2rem; background: linear-gradient(135deg, #FF6B6B, #ee5a52); color: white; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌐</div>
-                        <h3>HTML5</h3>
-                        <p>Estructura semántica moderna, elementos accesibles, marcado limpio y optimizado para SEO.</p>
-                    </div>
-                    <div style="padding: 2rem; background: linear-gradient(135deg, #4ECDC4, #44a08d); color: white; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
-                        <h3>CSS3</h3>
-                        <p>Flexbox, Grid Layout, animaciones CSS, gradientes, responsive design con mobile-first approach.</p>
-                    </div>
-                    <div style="padding: 2rem; background: linear-gradient(135deg, #45B7D1, #2196F3); color: white; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
-                        <h3>JavaScript ES6+</h3>
-                        <p>Manipulación DOM, event listeners, funciones modernas, programación orientada a objetos.</p>
-                    </div>
-                </div>
-
-                <h3>🛠️ Herramientas de Desarrollo</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
-                    <div>
-                        <h4>💻 Entorno de Desarrollo</h4>
-                        <ul class="features-list">
-                            <li>Visual Studio Code como editor principal</li>
-                            <li>Live Server para testing en tiempo real</li>
-                            <li>DevTools de Chrome para debugging</li>
-                            <li>Git para control de versiones</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>🌐 Deployment y Hosting</h4>
-                        <ul class="features-list">
-                            <li>GitHub para repositorio de código</li>
-                            <li>GitHub Pages para hosting gratuito</li>
-                            <li>Optimización para múltiples navegadores</li>
-                            <li>Testing en dispositivos móviles reales</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3>📊 Características Técnicas Avanzadas</h3>
-                <ul class="features-list">
-                    <li><strong>Responsive Design:</strong> Adaptable desde 320px hasta 4K</li>
-                    <li><strong>Performance:</strong> Carga rápida con imágenes optimizadas</li>
-                    <li><strong>Accesibilidad:</strong> Navegación por teclado, lectores de pantalla</li>
-                    <li><strong>SEO Friendly:</strong> Meta tags optimizados, estructura semántica</li>
-                    <li><strong>Cross-Browser:</strong> Compatible con Chrome, Firefox, Safari, Edge</li>
-                    <li><strong>Progressive Enhancement:</strong> Funciona sin JavaScript como base</li>
-                </ul>
-
-                <div style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border: 1px solid #dee2e6;">
-                    <h4>💡 Innovaciones Implementadas</h4>
-                    <p>El proyecto incluye características avanzadas como scroll indicator, parallax effects, intersection observer para animaciones, preloader personalizado, y un easter egg con código Konami para demostrar creatividad en la programación.</p>
-                </div>
-            </div>
-
-            <!-- Resto del contenido original adaptado -->
+            <!-- Resto del contenido con todas las secciones bancarias -->
             <div id="content-cuenta-ahorro" class="content-display">
                 <h2>💰 Cuenta de Ahorro Suarez Plus</h2>
                 <p>Nuestra cuenta estrella del Banco Suarez te ofrece la mejor tasa del mercado con la flexibilidad que necesitas. Diseñada especialmente para quienes buscan hacer crecer su dinero de manera segura y eficiente.</p>
@@ -264,78 +752,6 @@
                 <p><strong>¡Promoción especial Banco Suarez:</strong> Abre tu cuenta este mes y recibe RD$1,000 de regalo más 3 meses sin comisiones.</p>
             </div>
 
-            <div id="content-cuenta-corriente" class="content-display">
-                <h2>🏦 Cuenta Corriente Suarez Premium</h2>
-                <p>La cuenta corriente ideal para profesionales y empresarios que necesitan flexibilidad total en sus operaciones financieras diarias. Con beneficios exclusivos del Banco Suarez.</p>
-                <h3>🎯 Beneficios exclusivos:</h3>
-                <ul class="features-list">
-                    <li>Chequera de 50 cheques totalmente gratuita</li>
-                    <li>Línea de crédito automática hasta RD$200,000</li>
-                    <li>Asesor financiero personal asignado</li>
-                    <li>Descuentos del 15% en establecimientos aliados</li>
-                    <li>Acceso VIP a salas lounge en aeropuertos</li>
-                    <li>Estados de cuenta digitales ecológicos</li>
-                </ul>
-            </div>
-
-            <div id="content-cuenta-nomina" class="content-display">
-                <h2>💼 Cuenta Nómina Empresarial Suarez</h2>
-                <p>Facilita el pago de nómina de tu empresa con nuestra cuenta especializada del Banco Suarez. Proceso automatizado, reportes detallados y beneficios para tus empleados.</p>
-                <h3>🏢 Ventajas para tu empresa:</h3>
-                <ul class="features-list">
-                    <li>Procesamiento automático de nóminas</li>
-                    <li>Reportes detallados y personalizables</li>
-                    <li>API para integración con sistemas contables</li>
-                    <li>Soporte técnico especializado 24/7</li>
-                    <li>Tarjetas de débito gratuitas para empleados</li>
-                    <li>Préstamos preferenciales para colaboradores</li>
-                </ul>
-            </div>
-
-            <!-- Inversiones -->
-            <div id="content-fondos-inversion" class="content-display">
-                <h2>📈 Fondos de Inversión Suarez</h2>
-                <p>Multiplica tu patrimonio con nuestros fondos de inversión del Banco Suarez, gestionados por expertos. Diversifica tu portafolio y obtén rendimientos superiores al mercado tradicional.</p>
-                <h3>💎 Opciones de inversión:</h3>
-                <ul class="features-list">
-                    <li>Fondo Suarez Conservador: 12% anual promedio (bajo riesgo)</li>
-                    <li>Fondo Suarez Moderado: 18% anual promedio (riesgo medio)</li>
-                    <li>Fondo Suarez Agresivo: 25% anual promedio (alto rendimiento)</li>
-                    <li>Inversión mínima: RD$10,000 pesos</li>
-                    <li>Retiros parciales sin penalización</li>
-                    <li>Reportes mensuales de rendimiento</li>
-                </ul>
-            </div>
-
-            <div id="content-certificados" class="content-display">
-                <h2>📜 Certificados de Depósito Suarez</h2>
-                <p>Invierte con la máxima seguridad en nuestros certificados de depósito del Banco Suarez. Rendimientos garantizados y capital protegido al 100%.</p>
-                <h3>🔒 Opciones disponibles:</h3>
-                <ul class="features-list">
-                    <li>3 meses: 9.5% anual</li>
-                    <li>6 meses: 10.5% anual</li>
-                    <li>12 meses: 12% anual</li>
-                    <li>24 meses: 14% anual</li>
-                    <li>Renovación automática opcional</li>
-                    <li>Intereses pagaderos mensualmente</li>
-                </ul>
-            </div>
-
-            <div id="content-mercado-valores" class="content-display">
-                <h2>📊 Trading Suarez - Mercado de Valores</h2>
-                <p>Accede al mercado de valores dominicano e internacional con nuestra plataforma de trading avanzada del Banco Suarez. Invierte en acciones, bonos y ETFs con las mejores herramientas.</p>
-                <h3>🚀 Herramientas profesionales:</h3>
-                <ul class="features-list">
-                    <li>Plataforma de trading Suarez Pro</li>
-                    <li>Análisis técnico en tiempo real</li>
-                    <li>Acceso a mercados internacionales</li>
-                    <li>Asesoría de analistas financieros Suarez</li>
-                    <li>Comisiones competitivas desde 0.25%</li>
-                    <li>App móvil Suarez Trading</li>
-                </ul>
-            </div>
-
-            <!-- Préstamos -->
             <div id="content-prestamo-personal" class="content-display">
                 <h2>👤 Préstamo Personal Suarez Express</h2>
                 <p>Obtén el dinero que necesitas en 24 horas con nuestro préstamo personal del Banco Suarez. Proceso 100% digital, requisitos mínimos y respuesta inmediata.</p>
@@ -350,79 +766,6 @@
                 </ul>
             </div>
 
-            <div id="content-prestamo-vehiculo" class="content-display">
-                <h2>🚗 Financiamiento de Vehículos Suarez</h2>
-                <p>Estrena el vehículo de tus sueños con nuestro financiamiento especializado del Banco Suarez. Cubres hasta el 90% del valor y eliges el plan que mejor se adapte a ti.</p>
-                <h3>🔑 Beneficios del financiamiento:</h3>
-                <ul class="features-list">
-                    <li>Financiamos hasta el 90% del valor</li>
-                    <li>Tasa fija Suarez desde 12% anual</li>
-                    <li>Plazo hasta 96 meses</li>
-                    <li>Seguro de vehículo incluido el primer año</li>
-                    <li>Trámites directos en el concesionario</li>
-                    <li>Pre-aprobación online en 15 minutos</li>
-                </ul>
-            </div>
-
-            <div id="content-prestamo-hipotecario" class="content-display">
-                <h2>🏠 Préstamo Hipotecario Suarez Smart</h2>
-                <p>Haz realidad el sueño de tu casa propia con nuestro préstamo hipotecario del Banco Suarez. Las mejores condiciones del mercado y acompañamiento personalizado.</p>
-                <h3>🏡 Condiciones preferenciales:</h3>
-                <ul class="features-list">
-                    <li>Financiamos hasta el 95% del valor de la propiedad</li>
-                    <li>Tasa fija Suarez desde 8.75% anual</li>
-                    <li>Plazo hasta 30 años</li>
-                    <li>Cuota inicial desde 5%</li>
-                    <li>Avalúo gratuito de la propiedad</li>
-                    <li>Asesoría legal incluida sin costo</li>
-                    <li>Seguro de desgravamen incluido</li>
-                </ul>
-            </div>
-
-            <!-- Seguros -->
-            <div id="content-seguro-vida" class="content-display">
-                <h2>❤️ Seguro de Vida Integral Suarez</h2>
-                <p>Protege a tu familia con la tranquilidad que merecen. Nuestro seguro de vida del Banco Suarez ofrece la cobertura más completa del mercado con primas accesibles.</p>
-                <h3>🛡️ Coberturas incluidas:</h3>
-                <ul class="features-list">
-                    <li>Muerte por cualquier causa: hasta RD$8,000,000</li>
-                    <li>Invalidez total y permanente</li>
-                    <li>Enfermedades graves (cáncer, infarto, derrame)</li>
-                    <li>Gastos funerarios hasta RD$300,000</li>
-                    <li>Renta mensual para beneficiarios</li>
-                    <li>Cobertura mundial las 24 horas</li>
-                </ul>
-            </div>
-
-            <div id="content-seguro-auto" class="content-display">
-                <h2>🚙 Seguro de Auto Suarez Todo Riesgo</h2>
-                <p>Circula con total confianza con nuestro seguro vehicular del Banco Suarez. Cobertura integral, asistencia 24/7 y talleres de primera calidad.</p>
-                <h3>🔧 Servicios incluidos:</h3>
-                <ul class="features-list">
-                    <li>Cobertura todo riesgo (robo, colisión, incendio)</li>
-                    <li>Asistencia vial Suarez 24/7 en todo el país</li>
-                    <li>Vehículo de reemplazo mientras se repara</li>
-                    <li>Talleres autorizados Suarez de primera</li>
-                    <li>Gastos médicos hasta RD$500,000</li>
-                    <li>Responsabilidad civil hasta RD$2,000,000</li>
-                </ul>
-            </div>
-
-            <div id="content-seguro-hogar" class="content-display">
-                <h2>🏡 Seguro de Hogar Suarez Completo</h2>
-                <p>Tu hogar es tu mayor inversión, protégelo con el seguro más completo del Banco Suarez. Cobertura contra todo tipo de riesgos y servicios adicionales únicos en el mercado.</p>
-                <h3>🏠 Protección total:</h3>
-                <ul class="features-list">
-                    <li>Estructura contra incendio, terremoto, huracán</li>
-                    <li>Contenido y bienes personales</li>
-                    <li>Robo y hurto dentro y fuera del hogar</li>
-                    <li>Responsabilidad civil familiar</li>
-                    <li>Servicio de plomería y electricidad 24/7</li>
-                    <li>Jardinería y limpieza post-siniestro</li>
-                </ul>
-            </div>
-
-            <!-- Servicios -->
             <div id="content-banca-digital" class="content-display">
                 <h2>📱 Banca Digital Suarez de Vanguardia</h2>
                 <p>Experimenta el futuro de la banca con nuestra plataforma digital premiada del Banco Suarez. Seguridad de nivel militar, interfaz intuitiva y todas las funciones que necesitas.</p>
@@ -437,33 +780,7 @@
                 </ul>
             </div>
 
-            <div id="content-cajeros" class="content-display">
-                <h2>🏧 Red de Cajeros Inteligentes Suarez</h2>
-                <p>Accede a tu dinero cuando y donde lo necesites. El Banco Suarez cuenta con la red de cajeros más amplia del país con tecnología de última generación.</p>
-                <h3>🌐 Servicios disponibles:</h3>
-                <ul class="features-list">
-                    <li>Más de 500 cajeros Suarez a nivel nacional</li>
-                    <li>Retiros sin tarjeta usando código QR</li>
-                    <li>Depósitos las 24 horas los 7 días</li>
-                    <li>Consultas de saldo y movimientos</li>
-                    <li>Pago de préstamos y tarjetas Suarez</li>
-                    <li>Recarga de celular y servicios</li>
-                </ul>
-            </div>
-
-            <div id="content-transferencias" class="content-display">
-                <h2>💸 Transferencias Suarez Sin Límites</h2>
-                <p>Envía dinero de forma instantánea y segura dentro y fuera del país con el sistema de transferencias del Banco Suarez. Las tarifas más bajas del mercado.</p>
-                <h3>🌍 Opciones de envío:</h3>
-                <ul class="features-list">
-                    <li>Transferencias nacionales instantáneas Suarez</li>
-                    <li>Envíos internacionales a más de 50 países</li>
-                    <li>Tarifas Suarez desde RD$25 pesos</li>
-                    <li>Límites hasta RD$500,000 diarios</li>
-                    <li>Confirmación por SMS y email</li>
-                    <li>Historial completo de transacciones</li>
-                </ul>
-            </div>
+            <!-- Agregar más contenido según sea necesario -->
         </div>
     </div>
 
@@ -532,10 +849,10 @@
                     <h3>📞 Contacto</h3>
                     <ul>
                         <li>📱 (809) 210-2490</li>
-                        <li>📧 warlinsureaz20@com.do</li>
+                        <li>📧 arowarlinsuarez@gmail.com</li>
                         <li>📍 Av. 27 de Febrero, Santo Domingo</li>
-                        <li>🕒 Lun-Vie: 8:00AM - 6:00PM</li>
-                        <li>🕒 Sáb: 9:00AM - 1:00PM</li>
+                        <li>🕐 Lun-Vie: 8:00AM - 6:00PM</li>
+                        <li>🕘 Sáb: 9:00AM - 1:00PM</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -558,7 +875,152 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-</body>
+    <script>
+// =============================================================================
+// BANCO SUAREZ WEBSITE - JAVASCRIPT PRINCIPAL
+// Desarrollado por: Arowarlin Suarez
+// =============================================================================
 
-</html>
+// Variables globales
+let currentContent = 'conoce-mas';
+let isMenuOpen = false;
+
+// Funciones principales de navegación
+function showContent(contentId) {
+    // Ocultar todas las secciones de contenido
+    const contentSections = document.querySelectorAll('.content-display');
+    contentSections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Mostrar el contenido seleccionado
+    const targetContent = document.getElementById(`content-${contentId}`);
+    if (targetContent) {
+        targetContent.classList.add('active');
+        
+        // Scroll suave hacia el contenido
+        targetContent.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+        });
+
+        // Actualizar contenido actual
+        currentContent = contentId;
+    }
+
+    // Cerrar menú móvil si está abierto
+    closeMobileMenu();
+}
+
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (navMenu) {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            navMenu.style.display = 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.backgroundColor = '#1e3c72';
+            navMenu.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+            mobileMenuBtn.innerHTML = '✕';
+        } else {
+            navMenu.style.display = 'none';
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    }
+}
+
+function closeMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (isMenuOpen && navMenu && mobileMenuBtn) {
+        navMenu.style.display = 'none';
+        mobileMenuBtn.innerHTML = '☰';
+        isMenuOpen = false;
+    }
+}
+
+// Inicialización cuando el DOM está listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🏦 Inicializando Banco Suarez Website...');
+    
+    // Mostrar contenido por defecto
+    showContent('conoce-mas');
+    
+    // Configurar menú móvil
+    setupMobileMenu();
+    
+    // Configurar animaciones de loading
+    setTimeout(() => {
+        document.body.classList.remove('loading');
+    }, 1000);
+    
+    console.log('✅ Banco Suarez Website inicializado correctamente');
+});
+
+function setupMobileMenu() {
+    // Mostrar/ocultar botón según tamaño de pantalla
+    function handleResize() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (window.innerWidth <= 768) {
+            mobileMenuBtn.style.display = 'block';
+            if (!isMenuOpen) {
+                navMenu.style.display = 'none';
+            }
+        } else {
+            mobileMenuBtn.style.display = 'none';
+            navMenu.style.display = 'flex';
+            navMenu.style.position = 'static';
+            navMenu.style.flexDirection = 'row';
+            navMenu.style.backgroundColor = 'transparent';
+            navMenu.style.boxShadow = 'none';
+            isMenuOpen = false;
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Ejecutar inmediatamente
+}
+
+// Manejo de clicks fuera del menú móvil
+document.addEventListener('click', function(e) {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (isMenuOpen && navMenu && mobileMenuBtn && 
+        !navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        closeMobileMenu();
+    }
+});
+
+// Manejo de tecla ESC para cerrar menú
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isMenuOpen) {
+        closeMobileMenu();
+    }
+});
+
+// Scroll indicator
+window.addEventListener('scroll', function() {
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    if (scrollIndicator) {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        scrollIndicator.style.width = scrollPercent + '%';
+    }
+});
+
+console.log('💳 Banco Suarez Website JavaScript cargado correctamente');
+console.log('🔧 Versión: 1.0.0');
+console.log('📅 Desarrollado por: Arowarlin Suarez (21 años)');
