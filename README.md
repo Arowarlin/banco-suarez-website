@@ -225,8 +225,8 @@ Estudiante de Licenciatura en Informática, 21 años
 
 **Arowarlin Suarez**
 - 📱 Teléfono: (809) 210-2490
-- 📧 Email: arowarlinsuarez@gmail.com
-- 🌐 GitHub: [github.com/arowarlinsuarez](https://github.com/arowarlinsuarez)
+- 📧 Email: warlinsuarez20@gmail.com
+- 🌐 GitHub: [github.com/arowarliN](https://github.com/arowarlin)
 - 💼 LinkedIn: [Arowarlin Suarez - Estudiante de Informática]
 - 📍 Ubicación: Santo Domingo, República Dominicana
 
@@ -245,5 +245,6 @@ Estudiante de Licenciatura en Informática, 21 años
 **💻 Desarrollado con pasión y dedicación por Arowarlin Suarez**  
 **🎓 Proyecto académico original - Licenciatura en Informática**  
 **🇩🇴 República Dominicana - 2025**
+
 
 ⭐ **¡Si te gusta este proyecto, dale una estrella en GitHub!** ⭐
