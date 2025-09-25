@@ -4,610 +4,845 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco Suarez - Tu Futuro Financiero</title>
+    <meta name="description" content="Banco Suarez - Sitio bancario desarrollado por Arowarlin Suarez, estudiante de Informática de 21 años. Proyecto académico con servicios bancarios completos.">
+    <meta name="keywords" content="banco, suarez, arowarlin, informática, proyecto, académico, dominicana">
+    <meta name="author" content="Arowarlin Suarez">
     <style>
-/* =============================================================================
-   BANCO SUAREZ WEBSITE - ESTILOS PRINCIPALES
-   Versión: 1.0.0
-   Desarrollado por: Arowarlin Suarez
-   Descripción: Estilos CSS integrados para el sitio web de Banco Suarez
-   ============================================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: #f8f9fa;
-}
-
-/* =============================================================================
-   SCROLL INDICATOR
-   ============================================================================= */
-.scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(90deg, #4ECDC4, #FF6B6B);
-    z-index: 9999;
-    transition: width 0.3s ease;
-}
-
-/* =============================================================================
-   HEADER STYLES
-   ============================================================================= */
-.header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: block;
-}
-
-.nav-link:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-}
-
-.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 280px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border-radius: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-}
-
-.nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-item {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #eee;
-    color: #333;
-    transition: background 0.3s ease;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.dropdown-item:hover {
-    background: #f8f9fa;
-    color: #1e3c72;
-}
-
-.dropdown-item:last-child {
-    border-bottom: none;
-    border-radius: 0 0 8px 8px;
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.mobile-menu-btn:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-/* =============================================================================
-   HERO SECTION
-   ============================================================================= */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 150px 0 100px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    animation: fadeInUp 1s ease;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease 0.3s both;
-}
-
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
-    color: white;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
-    animation: fadeInUp 1s ease 0.6s both;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-/* =============================================================================
-   CONTENT CONTAINER
-   ============================================================================= */
-.content-container {
-    background: white;
-    min-height: 400px;
-    padding: 2rem 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.content-display {
-    padding: 2rem;
-    background: white;
-    margin: 1rem 0;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
-
-.content-display.active {
-    display: block;
-}
-
-.content-display h2 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
-    border-bottom: 3px solid #4ECDC4;
-    padding-bottom: 0.5rem;
-}
-
-.content-display h3 {
-    color: #34495e;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
-
-.content-display h4 {
-    color: #2c3e50;
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
-}
-
-.content-display p {
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
-}
-
-.features-list {
-    list-style: none;
-    margin: 1.5rem 0;
-}
-
-.features-list li {
-    padding: 0.5rem 0;
-    color: #555;
-    position: relative;
-    padding-left: 2rem;
-    line-height: 1.6;
-}
-
-.features-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #4ECDC4;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-/* =============================================================================
-   SERVICES SECTION
-   ============================================================================= */
-.services {
-    padding: 100px 0;
-    background: #f8f9fa;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #2c3e50;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    border-color: #4ECDC4;
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-.service-card p {
-    color: #666;
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-/* =============================================================================
-   FOOTER STYLES
-   ============================================================================= */
-.footer {
-    background: #2c3e50;
-    color: white;
-    padding: 60px 0 20px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1rem;
-    color: #4ECDC4;
-    font-size: 1.2rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section li {
-    padding: 0.3rem 0;
-}
-
-.footer-section a {
-    color: #bdc3c7;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.footer-section a:hover {
-    color: #4ECDC4;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #34495e;
-    color: #95a5a6;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-/* =============================================================================
-   ANIMATIONS & KEYFRAMES
-   ============================================================================= */
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =============================================================================
-   RESPONSIVE DESIGN
-   ============================================================================= */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #1e3c72;
-        flex-direction: column;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        border-radius: 0 0 10px 10px;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .mobile-menu-btn {
-        display: block !important;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .nav-container {
-        padding: 0 1rem;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-
-    .content-display {
-        margin: 0.5rem;
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 120px 0 80px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .cta-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
-
-    .content-display h2 {
-        font-size: 1.8rem;
-    }
-
-    .service-card {
-        padding: 1.5rem;
-    }
-}
-
-/* =============================================================================
-   LOADING ANIMATION
-   ============================================================================= */
-body.loading {
-    overflow: hidden;
-}
-
-body.loading::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1e3c72;
-    z-index: 10000;
-    animation: fadeOut 0.5s ease 1s forwards;
-}
-
-body.loading::after {
-    content: 'Cargando Banco Suarez...';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.5rem;
-    z-index: 10001;
-    animation: fadeOut 0.5s ease 1s forwards;
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* =============================================================================
-   ACCESSIBILITY IMPROVEMENTS
-   ============================================================================= */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* Focus styles */
-.nav-link:focus,
-.dropdown-item:focus,
-.cta-button:focus,
-.service-card:focus {
-    outline: 2px solid #4ECDC4;
-    outline-offset: 2px;
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-    .hero {
-        background: #000000;
-    }
-    
-    .service-card {
-        border: 2px solid #333;
-    }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+        /* =============================================================================
+           BANCO SUAREZ WEBSITE - ESTILOS PRINCIPALES
+           Versión: 1.0.0 - Desarrollado por Arowarlin Suarez (21 años)
+           Descripción: Estilos CSS completos para el sitio web de Banco Suarez
+           ============================================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* =============================================================================
+           SCROLL INDICATOR
+           ============================================================================= */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #4ECDC4, #FF6B6B);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* =============================================================================
+           PRELOADER
+           ============================================================================= */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.5s ease;
+        }
+
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .preloader-logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .preloader-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* =============================================================================
+           HEADER STYLES
+           ============================================================================= */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "💳";
+            font-size: 2rem;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #1e3c72;
+            padding-left: 2rem;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(255,255,255,0.1);
+            transform: rotate(90deg);
+        }
+
+        /* =============================================================================
+           HERO SECTION
+           ============================================================================= */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(180deg, transparent 0%, #f8f9fa 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* =============================================================================
+           CONTENT CONTAINER
+           ============================================================================= */
+        .content-container {
+            background: white;
+            min-height: 600px;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-display {
+            padding: 2rem;
+            background: white;
+            margin: 1rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: none;
+            animation: fadeInUp 0.5s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .content-display.active {
+            display: block;
+        }
+
+        .content-display h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #4ECDC4;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-display h3 {
+            color: #34495e;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-display h4 {
+            color: #2c3e50;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-display p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .features-list li:hover {
+            color: #2c3e50;
+            transform: translateX(5px);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: bold;
+            font-size: 1.1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* =============================================================================
+           SERVICES SECTION
+           ============================================================================= */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .services::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(180deg, white 0%, transparent 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4ECDC4, #FF6B6B);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #4ECDC4;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* =============================================================================
+           FOOTER STYLES
+           ============================================================================= */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(180deg, #e9ecef 0%, transparent 100%);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4ECDC4;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            padding: 0.3rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4ECDC4;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 4px solid #4ECDC4;
+        }
+
+        /* =============================================================================
+           ANIMATIONS & KEYFRAMES
+           ============================================================================= */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(300px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* =============================================================================
+           RESPONSIVE DESIGN
+           ============================================================================= */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                flex-direction: column;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-menu.show {
+                display: flex;
+                animation: slideInDown 0.3s ease;
+            }
+
+            @keyframes slideInDown {
+                from { transform: translateY(-100%); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #2a5298;
+                margin-left: 1rem;
+                border-radius: 8px;
+                margin-top: 0.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .content-display {
+                margin: 0.5rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .content-display h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* =============================================================================
+           ACCESSIBILITY IMPROVEMENTS
+           ============================================================================= */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles */
+        .nav-link:focus,
+        .dropdown-item:focus,
+        .cta-button:focus,
+        .service-card:focus {
+            outline: 2px solid #4ECDC4;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .hero {
+                background: #000000;
+            }
+            
+            .service-card {
+                border: 2px solid #333;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
-<body class="loading">
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">🏦</div>
+            <div class="preloader-text">Cargando Banco Suarez...</div>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
-    <header class="header">
+    <header class="header" id="header">
         <div class="nav-container">
-            <div class="logo" onclick="showContent('conoce-mas')">💳 Banco Suarez</div>
+            <div class="logo" onclick="showContent('conoce-mas')" role="button" tabindex="0">Banco Suarez</div>
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li class="nav-item">
@@ -660,7 +895,7 @@ body.loading::after {
                     </li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menú móvil">☰</button>
         </div>
     </header>
 
@@ -687,136 +922,386 @@ body.loading::after {
                     <li>Respaldo de solidez financiera y transparencia total</li>
                     <li>Plataforma digital premiada por su innovación y seguridad</li>
                 </ul>
-                <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px; border-left: 4px solid #4ECDC4;">
+                <div class="highlight-box">
                     <h4>💡 Innovación y Excelencia</h4>
-                    <p>Banco Suarez representa la fusión perfecta entre tradición bancaria e innovación tecnológica, ofreciendo soluciones financieras que se adaptan a las necesidades del siglo XXI.</p>
+                    <p>Banco Suarez representa la fusión perfecta entre tradición bancaria y tecnología moderna. Nuestro compromiso es brindar servicios financieros de calidad mundial, manteniendo siempre la cercanía y calidez humana que nos caracteriza.</p>
                 </div>
             </div>
 
-            <!-- Nueva Sección: Sobre el Desarrollador -->
-            <div id="content-sobre-arowarlin" class="content-display">
-                <h2>👨‍💻 Arowarlin Suarez - Desarrollador</h2>
-                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; margin: 2rem 0;">
-                    <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 15px;">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;">👨‍💻</div>
-                        <h3>Arowarlin Suarez</h3>
-                        <p style="margin: 0.5rem 0;">21 años</p>
-                        <p style="margin: 0;">Estudiante de Informática</p>
-                    </div>
-                    <div>
-                        <h3>🎓 Perfil Profesional</h3>
-                        <ul class="features-list">
-                            <li><strong>Edad:</strong> 21 años</li>
-                            <li><strong>Carrera:</strong> Licenciatura en Informática</li>
-                            <li><strong>Especialización:</strong> Desarrollo Web y Tecnologías Digitales</li>
-                            <li><strong>Enfoque:</strong> Soluciones tecnológicas innovadoras</li>
-                            <li><strong>Pasión:</strong> Crear experiencias digitales excepcionales</li>
-                            <li><strong>Visión:</strong> Transformar ideas en realidades digitales</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3>🚀 Filosofía de Desarrollo</h3>
-                <p>Como estudiante de informática apasionado por la tecnología, mi enfoque se centra en crear soluciones web modernas, funcionales y estéticamente atractivas. Cada línea de código que escribo está pensada para ofrecer la mejor experiencia de usuario posible.</p>
-                
-                <h3>💼 Competencias Técnicas</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                    <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #4ECDC4;">
-                        <h4>🌐 Frontend</h4>
-                        <p>HTML5, CSS3, JavaScript ES6+, Responsive Design, UX/UI</p>
-                    </div>
-                    <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #FF6B6B;">
-                        <h4>🎨 Design</h4>
-                        <p>Diseño web moderno, animaciones CSS, interfaces intuitivas</p>
-                    </div>
-                    <div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #45B7D1;">
-                        <h4>⚡ Performance</h4>
-                        <p>Optimización web, código limpio, mejores prácticas</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Resto del contenido con todas las secciones bancarias -->
+            <!-- Contenido de Cuentas -->
             <div id="content-cuenta-ahorro" class="content-display">
-                <h2>💰 Cuenta de Ahorro Suarez Plus</h2>
-                <p>Nuestra cuenta estrella del Banco Suarez te ofrece la mejor tasa del mercado con la flexibilidad que necesitas. Diseñada especialmente para quienes buscan hacer crecer su dinero de manera segura y eficiente.</p>
-                <h3>✨ Características principales:</h3>
+                <h2>💰 Cuenta de Ahorro</h2>
+                <p>Descubre nuestra cuenta de ahorro diseñada para hacer crecer tu dinero de forma segura y rentable.</p>
+                <h3>📊 Beneficios destacados</h3>
                 <ul class="features-list">
-                    <li>Tasa de interés: 8.5% anual (la más alta del mercado)</li>
-                    <li>Apertura desde RD$1,000 pesos</li>
-                    <li>Sin límite de transacciones mensuales</li>
-                    <li>Banca móvil y online gratuita</li>
-                    <li>Tarjeta de débito Visa sin costo anual</li>
-                    <li>Seguro de vida gratuito hasta RD$500,000</li>
+                    <li>Tasa de interés competitiva del 4.5% anual</li>
+                    <li>Sin comisión por mantenimiento de cuenta</li>
+                    <li>Acceso gratuito a todos nuestros cajeros automáticos</li>
+                    <li>Banca móvil y en línea sin costos adicionales</li>
+                    <li>Seguro de vida gratuito por el saldo de tu cuenta</li>
+                    <li>Notificaciones en tiempo real de todas tus transacciones</li>
                 </ul>
-                <p><strong>¡Promoción especial Banco Suarez:</strong> Abre tu cuenta este mes y recibe RD$1,000 de regalo más 3 meses sin comisiones.</p>
+                <div class="highlight-box">
+                    <h4>💼 Requisitos para apertura</h4>
+                    <p>Solo necesitas ser mayor de 18 años, presentar cédula de identidad y electoral vigentes, y realizar un depósito inicial de RD$1,000. ¡Es así de fácil!</p>
+                </div>
             </div>
 
+            <div id="content-cuenta-corriente" class="content-display">
+                <h2>🏦 Cuenta Corriente</h2>
+                <p>La solución perfecta para manejar tus finanzas diarias con total flexibilidad y comodidad.</p>
+                <h3>🎯 Características principales</h3>
+                <ul class="features-list">
+                    <li>Chequera gratuita con diseños personalizados</li>
+                    <li>Tarjeta de débito con tecnología chip y contactless</li>
+                    <li>Transferencias ilimitadas sin costo</li>
+                    <li>Estados de cuenta digitales mensuales</li>
+                    <li>Sobregiro autorizado hasta RD$50,000</li>
+                    <li>Domiciliación de pagos automáticos</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🌐 Acceso digital completo</h4>
+                    <p>Maneja tu cuenta desde cualquier lugar con nuestra plataforma digital premiada. Disponible 24/7 con la más alta seguridad.</p>
+                </div>
+            </div>
+
+            <div id="content-cuenta-nomina" class="content-display">
+                <h2>💼 Cuenta Nómina</h2>
+                <p>Diseñada especialmente para empleados que buscan maximizar los beneficios de su salario.</p>
+                <h3>🎁 Beneficios exclusivos</h3>
+                <ul class="features-list">
+                    <li>Sin comisiones de ningún tipo durante el primer año</li>
+                    <li>Tasa preferencial en préstamos personales</li>
+                    <li>Seguros de vida y accidentes incluidos</li>
+                    <li>Descuentos en comercios afiliados</li>
+                    <li>Asesoría financiera personalizada gratuita</li>
+                    <li>Adelanto de nómina disponible</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🏢 Para empresas</h4>
+                    <p>Ofrecemos soluciones corporativas para el pago de nóminas con descuentos especiales y servicios adicionales para tu empresa.</p>
+                </div>
+            </div>
+
+            <!-- Contenido de Inversiones -->
+            <div id="content-fondos-inversion" class="content-display">
+                <h2>📈 Fondos de Inversión</h2>
+                <p>Haz crecer tu patrimonio con nuestros fondos de inversión profesionalmente administrados.</p>
+                <h3>💎 Tipos de fondos disponibles</h3>
+                <ul class="features-list">
+                    <li>Fondo Conservador: Riesgo bajo, rendimiento estable 6-8% anual</li>
+                    <li>Fondo Moderado: Riesgo medio, rendimiento 8-12% anual</li>
+                    <li>Fondo Agresivo: Alto potencial, rendimiento 12-18% anual</li>
+                    <li>Fondo Internacional: Diversificación global</li>
+                    <li>Fondo Sectorial: Inversiones especializadas</li>
+                    <li>Fondo Inmobiliario: Inversión en bienes raíces</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>👥 Asesoría especializada</h4>
+                    <p>Nuestros asesores de inversión certificados te ayudarán a crear un portafolio personalizado según tus objetivos y perfil de riesgo.</p>
+                </div>
+            </div>
+
+            <div id="content-certificados" class="content-display">
+                <h2>📜 Certificados</h2>
+                <p>Invierte de forma segura con nuestros certificados de depósito a plazo fijo con excelentes rendimientos.</p>
+                <h3>⏰ Plazos y tasas disponibles</h3>
+                <ul class="features-list">
+                    <li>30 días: 5.5% anual - Mínimo RD$50,000</li>
+                    <li>90 días: 6.0% anual - Mínimo RD$100,000</li>
+                    <li>180 días: 6.5% anual - Mínimo RD$200,000</li>
+                    <li>365 días: 7.0% anual - Mínimo RD$500,000</li>
+                    <li>Renovación automática disponible</li>
+                    <li>Certificados nominativos al portador</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🔒 Garantía total</h4>
+                    <p>Todos nuestros certificados están respaldados por FOGADE y cuentan con la máxima seguridad para tu inversión.</p>
+                </div>
+            </div>
+
+            <div id="content-mercado-valores" class="content-display">
+                <h2>📊 Mercado de Valores</h2>
+                <p>Accede al mercado bursátil dominicano e internacional con nuestro servicio de corretaje especializado.</p>
+                <h3>🎯 Servicios de trading</h3>
+                <ul class="features-list">
+                    <li>Compra y venta de acciones locales e internacionales</li>
+                    <li>Bonos gubernamentales y corporativos</li>
+                    <li>Plataforma de trading en tiempo real</li>
+                    <li>Análisis técnico y fundamental</li>
+                    <li>Reportes de mercado semanales</li>
+                    <li>Asesoría especializada en inversiones bursátiles</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>📱 Plataforma digital</h4>
+                    <p>Opera desde tu móvil o computadora con nuestra plataforma de trading profesional, disponible 24/7.</p>
+                </div>
+            </div>
+
+            <!-- Contenido de Préstamos -->
             <div id="content-prestamo-personal" class="content-display">
-                <h2>👤 Préstamo Personal Suarez Express</h2>
-                <p>Obtén el dinero que necesitas en 24 horas con nuestro préstamo personal del Banco Suarez. Proceso 100% digital, requisitos mínimos y respuesta inmediata.</p>
-                <h3>⚡ Características:</h3>
+                <h2>👤 Préstamo Personal</h2>
+                <p>Obtén el dinero que necesitas para cumplir tus proyectos personales con condiciones flexibles.</p>
+                <h3>💰 Características del préstamo</h3>
                 <ul class="features-list">
-                    <li>Hasta RD$2,500,000 pesos disponibles</li>
-                    <li>Tasas Suarez desde 14.5% anual</li>
-                    <li>Plazo hasta 84 meses</li>
-                    <li>Aprobación en menos de 2 horas</li>
+                    <li>Montos desde RD$50,000 hasta RD$2,000,000</li>
+                    <li>Tasas desde 12% anual fija</li>
+                    <li>Plazos de 12 hasta 60 meses</li>
                     <li>Sin garantía hipotecaria requerida</li>
-                    <li>Pagos flexibles adaptados a tus ingresos</li>
+                    <li>Aprobación en 24 horas</li>
+                    <li>Desembolso inmediato a tu cuenta</li>
                 </ul>
+                <div class="highlight-box">
+                    <h4>📋 Requisitos mínimos</h4>
+                    <p>Edad entre 21 y 65 años, ingresos comprobables mínimos de RD$25,000 mensuales, y antigüedad laboral de al menos 1 año.</p>
+                </div>
             </div>
 
-            <div id="content-banca-digital" class="content-display">
-                <h2>📱 Banca Digital Suarez de Vanguardia</h2>
-                <p>Experimenta el futuro de la banca con nuestra plataforma digital premiada del Banco Suarez. Seguridad de nivel militar, interfaz intuitiva y todas las funciones que necesitas.</p>
-                <h3>🚀 Funciones avanzadas:</h3>
+            <div id="content-prestamo-vehiculo" class="content-display">
+                <h2>🚗 Préstamo de Vehículo</h2>
+                <p>Financia el vehículo de tus sueños con las mejores condiciones del mercado.</p>
+                <h3>🚙 Opciones de financiamiento</h3>
                 <ul class="features-list">
-                    <li>Autenticación biométrica (huella y rostro)</li>
-                    <li>Transferencias instantáneas Suarez 24/7</li>
-                    <li>Pago de servicios sin comisiones</li>
-                    <li>Inversiones desde la app Suarez</li>
-                    <li>Chat con asistente IA las 24 horas</li>
-                    <li>Notificaciones inteligentes en tiempo real</li>
+                    <li>Vehículos nuevos: Hasta 90% del valor, tasa desde 8.5%</li>
+                    <li>Vehículos usados: Hasta 80% del valor, tasa desde 10%</li>
+                    <li>Plazos hasta 7 años para vehículos nuevos</li>
+                    <li>Plazos hasta 5 años para vehículos usados</li>
+                    <li>Seguro de vida incluido</li>
+                    <li>Trámites simplificados</li>
                 </ul>
+                <div class="highlight-box">
+                    <h4>🏪 Red de concesionarios</h4>
+                    <p>Tenemos convenios con más de 50 concesionarios para ofrecerte descuentos especiales y facilidades de financiamiento.</p>
+                </div>
             </div>
 
-            <!-- Agregar más contenido según sea necesario -->
+            <div id="content-prestamo-hipotecario" class="content-display">
+                <h2>🏠 Préstamo Hipotecario</h2>
+                <p>Haz realidad el sueño de tu casa propia con nuestros préstamos hipotecarios competitivos.</p>
+                <h3>🏡 Tipos de préstamos hipotecarios</h3>
+                <ul class="features-list">
+                    <li>Casa nueva: Hasta 90% del valor, tasa desde 7.5%</li>
+                    <li>Casa usada: Hasta 85% del valor, tasa desde 8%</li>
+                    <li>Construcción: Financiamiento por etapas</li>
+                    <li>Refinanciamiento: Mejora las condiciones actuales</li>
+                    <li>Plazos hasta 30 años</li>
+                    <li>Cuotas fijas o variables</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🎁 Beneficios adicionales</h4>
+                    <p>Sin comisión de apertura, evaluación gratuita de la propiedad, y asesoría legal incluida en el proceso.</p>
+                </div>
+            </div>
+
+            <!-- Contenido de Seguros -->
+            <div id="content-seguro-vida" class="content-display">
+                <h2>❤️ Seguro de Vida</h2>
+                <p>Protege a tu familia con nuestros seguros de vida diseñados para brindar tranquilidad y seguridad financiera.</p>
+                <h3>🛡️ Planes de cobertura</h3>
+                <ul class="features-list">
+                    <li>Seguro de Vida Básico: Cobertura desde RD$500,000</li>
+                    <li>Seguro de Vida Plus: Incluye invalidez total y parcial</li>
+                    <li>Seguro de Vida Premium: Cobertura integral familiar</li>
+                    <li>Seguro de Vida Empresarial: Para empleados de empresas</li>
+                    <li>Seguro Educativo: Garantiza la educación de tus hijos</li>
+                    <li>Pago de primas flexible</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>👨‍👩‍👧‍👦 Protección familiar</h4>
+                    <p>Incluye cobertura para cónyuge e hijos menores de edad sin costo adicional en nuestros planes familiares.</p>
+                </div>
+            </div>
+
+            <div id="content-seguro-auto" class="content-display">
+                <h2>🚙 Seguro de Auto</h2>
+                <p>Conduce con tranquilidad sabiendo que tu vehículo está protegido con la mejor cobertura del mercado.</p>
+                <h3>🚗 Coberturas disponibles</h3>
+                <ul class="features-list">
+                    <li>Responsabilidad Civil: Cobertura obligatoria por ley</li>
+                    <li>Colisión y Vuelco: Daños a tu vehículo</li>
+                    <li>Robo Total: Protección contra hurto</li>
+                    <li>Incendio y Fenómenos Naturales: Cobertura amplia</li>
+                    <li>Gastos Médicos: Para ocupantes del vehículo</li>
+                    <li>Asistencia Vial 24/7: Grúa y servicios de emergencia</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🔧 Servicios adicionales</h4>
+                    <p>Red de talleres afiliados, vehículo de reemplazo durante reparaciones, y gestión de siniestros 100% digital.</p>
+                </div>
+            </div>
+
+            <div id="content-seguro-hogar" class="content-display">
+                <h2>🏡 Seguro de Hogar</h2>
+                <p>Protege tu patrimonio más importante con nuestro seguro integral para el hogar.</p>
+                <h3>🏠 Protección completa</h3>
+                <ul class="features-list">
+                    <li>Estructura: Daños por incendio, explosión, fenómenos naturales</li>
+                    <li>Contenido: Muebles, electrodomésticos, objetos personales</li>
+                    <li>Responsabilidad Civil: Daños a terceros</li>
+                    <li>Robo y Hurto: Protección contra la delincuencia</li>
+                    <li>Gastos de Alojamiento: Durante reparaciones</li>
+                    <li>Servicios de Emergencia: Plomería, electricidad, cerrajería</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🏡 Hogar inteligente</h4>
+                    <p>Descuentos especiales para hogares con sistemas de seguridad, alarmas contra incendio y cámaras de seguridad.</p>
+                </div>
+            </div>
+
+            <!-- Contenido de Servicios -->
+            <div id="content-banca-digital" class="content-display">
+                <h2>📱 Banca Digital</h2>
+                <p>Experimenta la banca del futuro con nuestra plataforma digital premiada, disponible 24/7 desde cualquier dispositivo.</p>
+                <h3>💻 Funcionalidades principales</h3>
+                <ul class="features-list">
+                    <li>Consulta de saldos y movimientos en tiempo real</li>
+                    <li>Transferencias nacionales e internacionales</li>
+                    <li>Pago de servicios públicos y tarjetas de crédito</li>
+                    <li>Inversiones y compra/venta de fondos mutuos</li>
+                    <li>Chat en vivo con asesores especializados</li>
+                    <li>Notificaciones push personalizables</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🔐 Seguridad avanzada</h4>
+                    <p>Autenticación biométrica, encriptación de extremo a extremo, y monitoreo 24/7 para proteger tus transacciones.</p>
+                </div>
+            </div>
+
+            <div id="content-cajeros" class="content-display">
+                <h2>🏧 Cajeros Automáticos</h2>
+                <p>Accede a tu dinero cuando lo necesites en nuestra amplia red de cajeros automáticos de última generación.</p>
+                <h3>📍 Red de cajeros</h3>
+                <ul class="features-list">
+                    <li>Más de 300 cajeros propios a nivel nacional</li>
+                    <li>Red compartida con otros bancos (más de 1,500 cajeros)</li>
+                    <li>Cajeros en centros comerciales, universidades y hospitales</li>
+                    <li>Dispensación de billetes de múltiples denominaciones</li>
+                    <li>Depósitos en efectivo y cheques 24/7</li>
+                    <li>Consultas de saldo sin comisión</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>💳 Sin comisiones</h4>
+                    <p>Retiros gratuitos ilimitados en cajeros propios y hasta 5 retiros mensuales sin costo en cajeros de otros bancos.</p>
+                </div>
+            </div>
+
+            <div id="content-transferencias" class="content-display">
+                <h2>💸 Transferencias</h2>
+                <p>Envía dinero de forma rápida, segura y económica con nuestros servicios de transferencia nacional e internacional.</p>
+                <h3>🌐 Tipos de transferencias</h3>
+                <ul class="features-list">
+                    <li>Transferencias inmediatas entre cuentas Banco Suarez</li>
+                    <li>Transferencias ACH a otros bancos locales</li>
+                    <li>Wire Transfer internacional a más de 200 países</li>
+                    <li>Remesas familiares con tarifas preferenciales</li>
+                    <li>Transferencias programadas y recurrentes</li>
+                    <li>Notificación automática al beneficiario</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>⚡ Rapidez garantizada</h4>
+                    <p>Transferencias locales procesadas en menos de 5 minutos, e internacionales en el mismo día hábil.</p>
+                </div>
+            </div>
+
+            <!-- Contenido Acerca de -->
+            <div id="content-sobre-arowarlin" class="content-display">
+                <h2>👨‍💻 Sobre el Desarrollador</h2>
+                <p>Conoce a Arowarlin Suarez, el joven desarrollador de 21 años detrás de este innovador proyecto bancario.</p>
+                <h3>🎓 Perfil académico y profesional</h3>
+                <ul class="features-list">
+                    <li>Estudiante de Ingeniería en Informática, 21 años</li>
+                    <li>Especialización en desarrollo web frontend y backend</li>
+                    <li>Experiencia en HTML5, CSS3, JavaScript y frameworks modernos</li>
+                    <li>Diseñador UX/UI con enfoque en experiencia de usuario</li>
+                    <li>Participante activo en hackathons y competencias de programación</li>
+                    <li>Apasionado por la innovación en servicios financieros digitales</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>💡 Visión del proyecto</h4>
+                    <p>"Mi objetivo es demostrar cómo la tecnología moderna puede transformar la experiencia bancaria tradicional, creando soluciones más accesibles, intuitivas y seguras para todos los usuarios."</p>
+                </div>
+            </div>
+
+            <div id="content-proyecto-academico" class="content-display">
+                <h2>🎓 Proyecto Académico</h2>
+                <p>Banco Suarez nace como un proyecto académico innovador que busca aplicar conocimientos teóricos en un entorno práctico real.</p>
+                <h3>🎯 Objetivos del proyecto</h3>
+                <ul class="features-list">
+                    <li>Demostrar competencias en desarrollo web full-stack</li>
+                    <li>Aplicar principios de diseño UX/UI en servicios financieros</li>
+                    <li>Integrar conceptos de seguridad web y protección de datos</li>
+                    <li>Desarrollar interfaces responsive para múltiples dispositivos</li>
+                    <li>Implementar mejores prácticas de accesibilidad web</li>
+                    <li>Simular un ecosistema bancario digital completo</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>📚 Metodología de desarrollo</h4>
+                    <p>El proyecto sigue metodologías ágiles, incorporando feedback continuo, iteraciones rápidas, y testing exhaustivo para garantizar calidad y funcionalidad óptima.</p>
+                </div>
+            </div>
+
+            <div id="content-tecnologias" class="content-display">
+                <h2>⚙️ Tecnologías Utilizadas</h2>
+                <p>Este proyecto está construido utilizando las tecnologías web más modernas y eficientes del mercado.</p>
+                <h3>🛠️ Stack tecnológico</h3>
+                <ul class="features-list">
+                    <li>HTML5 semántico para estructura optimizada</li>
+                    <li>CSS3 avanzado con Flexbox y Grid Layout</li>
+                    <li>JavaScript ES6+ para interactividad dinámica</li>
+                    <li>Diseño responsive mobile-first</li>
+                    <li>Animaciones CSS y transiciones suaves</li>
+                    <li>Optimización para motores de búsqueda (SEO)</li>
+                </ul>
+                <h3>🎨 Características de diseño</h3>
+                <ul class="features-list">
+                    <li>Paleta de colores moderna y profesional</li>
+                    <li>Tipografía legible y jerarquía visual clara</li>
+                    <li>Iconografía intuitiva y consistente</li>
+                    <li>Microinteracciones para mejorar la experiencia</li>
+                    <li>Accesibilidad WCAG 2.1 AA compliant</li>
+                    <li>Performance optimizada para carga rápida</li>
+                </ul>
+                <div class="highlight-box">
+                    <h4>🚀 Innovaciones implementadas</h4>
+                    <p>Incluye preloader animado, scroll indicator, navegación adaptativa, efectos hover avanzados, y un sistema de contenido dinámico sin necesidad de múltiples páginas.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <section class="services">
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Servicios Destacados del Banco Suarez</h2>
+            <h2 class="section-title">Nuestros Servicios Principales</h2>
             <div class="services-grid">
                 <div class="service-card" onclick="showContent('cuenta-ahorro')">
+                    <span class="service-icon">💰</span>
+                    <h3>Cuentas de Ahorro</h3>
+                    <p>Haz crecer tu dinero con nuestras cuentas de ahorro de alto rendimiento y sin comisiones ocultas.</p>
+                </div>
+                <div class="service-card" onclick="showContent('prestamo-personal')">
                     <span class="service-icon">💳</span>
-                    <h3>Cuentas Digitales</h3>
-                    <p>Cuentas de ahorro y corriente Suarez con tecnología avanzada, tasas competitivas y beneficios únicos para tu comodidad financiera diaria.</p>
+                    <h3>Préstamos Personales</h3>
+                    <p>Obtén financiamiento rápido y flexible para todos tus proyectos personales con tasas competitivas.</p>
                 </div>
                 <div class="service-card" onclick="showContent('fondos-inversion')">
                     <span class="service-icon">📈</span>
-                    <h3>Inversiones Inteligentes</h3>
-                    <p>Multiplica tu dinero con nuestros productos de inversión Suarez respaldados por expertos financieros y tecnología de análisis avanzada.</p>
-                </div>
-                <div class="service-card" onclick="showContent('prestamo-personal')">
-                    <span class="service-icon">🏠</span>
-                    <h3>Préstamos Express</h3>
-                    <p>Financia tus proyectos con nuestros préstamos Suarez flexibles, tasas preferenciales y aprobación en tiempo récord.</p>
-                </div>
-                <div class="service-card" onclick="showContent('seguro-vida')">
-                    <span class="service-icon">🛡️</span>
-                    <h3>Seguros Integrales</h3>
-                    <p>Protege tu patrimonio con nuestros seguros Suarez de amplia cobertura y primas accesibles para toda la familia.</p>
+                    <h3>Inversiones</h3>
+                    <p>Multiplica tu patrimonio con nuestros productos de inversión profesionalmente administrados.</p>
                 </div>
                 <div class="service-card" onclick="showContent('banca-digital')">
                     <span class="service-icon">📱</span>
-                    <h3>Banca Digital Suarez</h3>
-                    <p>Realiza todas tus operaciones bancarias desde cualquier lugar con nuestra plataforma digital Suarez premiada internacionalmente.</p>
+                    <h3>Banca Digital</h3>
+                    <p>Gestiona todas tus finanzas desde tu móvil con la plataforma digital más avanzada del mercado.</p>
                 </div>
-                <div class="service-card" onclick="showContent('sobre-arowarlin')">
-                    <span class="service-icon">👨‍💻</span>
-                    <h3>Desarrollado por Arowarlin</h3>
-                    <p>Conoce al joven talento de 21 años, estudiante de informática, que desarrolló esta innovadora plataforma bancaria digital.</p>
+                <div class="service-card" onclick="showContent('seguro-vida')">
+                    <span class="service-icon">🛡️</span>
+                    <h3>Seguros</h3>
+                    <p>Protege lo que más importa con nuestros seguros de vida, auto y hogar con coberturas integrales.</p>
+                </div>
+                <div class="service-card" onclick="showContent('transferencias')">
+                    <span class="service-icon">💸</span>
+                    <h3>Transferencias</h3>
+                    <p>Envía dinero de forma rápida y segura a nivel nacional e internacional con las mejores tarifas.</p>
                 </div>
             </div>
         </div>
@@ -826,201 +1311,450 @@ body.loading::after {
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>🏦 Productos Suarez</h3>
-                    <ul>
-                        <li><a onclick="showContent('cuenta-ahorro')">Cuenta de Ahorro Suarez Plus</a></li>
-                        <li><a onclick="showContent('cuenta-corriente')">Cuenta Corriente Suarez Premium</a></li>
-                        <li><a onclick="showContent('prestamo-personal')">Préstamos Personales Suarez</a></li>
-                        <li><a onclick="showContent('fondos-inversion')">Fondos de Inversión Suarez</a></li>
-                        <li><a onclick="showContent('certificados')">Certificados de Depósito Suarez</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>💼 Servicios Suarez</h3>
-                    <ul>
-                        <li><a onclick="showContent('banca-digital')">Banca Digital Suarez</a></li>
-                        <li><a onclick="showContent('transferencias')">Transferencias Suarez</a></li>
-                        <li><a onclick="showContent('seguro-vida')">Seguros Suarez</a></li>
-                        <li><a onclick="showContent('cajeros')">Red de Cajeros Suarez</a></li>
-                        <li><a onclick="showContent('mercado-valores')">Trading Suarez Online</a></li>
-                    </ul>
+                    <h3>🏦 Banco Suarez</h3>
+                    <p>Tu socio financiero de confianza desde 2024. Innovación, seguridad y excelencia en cada servicio.</p>
+                    <p><strong>Licencia Bancaria:</strong> #BS-2024-001</p>
+                    <p><strong>Superintendencia de Bancos</strong></p>
                 </div>
                 <div class="footer-section">
                     <h3>📞 Contacto</h3>
                     <ul>
-                        <li>📱 (809) 210-2490</li>
-                        <li>📧 arowarlinsuarez@gmail.com</li>
-                        <li>📍 Av. 27 de Febrero, Santo Domingo</li>
-                        <li>🕐 Lun-Vie: 8:00AM - 6:00PM</li>
-                        <li>🕘 Sáb: 9:00AM - 1:00PM</li>
+                        <li>📱 Atención al Cliente: *462 (desde móvil)</li>
+                        <li>☎️ Desde fijo: 809-200-4627</li>
+                        <li>✉️ Email: info@bancosuarez.do</li>
+                        <li>💬 Chat 24/7 disponible en la app</li>
+                        <li>🏢 Oficina Principal: Plaza Financiera, Zona Colonial</li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>👨‍💻 Desarrollador</h3>
+                    <h3>⏰ Horarios</h3>
                     <ul>
-                        <li><a onclick="showContent('sobre-arowarlin')">Arowarlin Suarez</a></li>
+                        <li>🏢 Sucursales: Lun-Vie 8:00AM-5:00PM</li>
+                        <li>🏢 Sábados: 8:00AM-12:00PM</li>
+                        <li>🏧 Cajeros: 24/7 todos los días</li>
+                        <li>📱 Banca Digital: 24/7/365</li>
+                        <li>📞 Call Center: 24/7/365</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Enlaces Útiles</h3>
+                    <ul>
+                        <li><a onclick="showContent('conoce-mas')">Sobre Nosotros</a></li>
+                        <li><a onclick="showContent('banca-digital')">Banca en Línea</a></li>
+                        <li><a onclick="showContent('cajeros')">Ubicación de Cajeros</a></li>
                         <li><a onclick="showContent('proyecto-academico')">Proyecto Académico</a></li>
-                        <li><a onclick="showContent('tecnologias')">Tecnologías Utilizadas</a></li>
-                        <li>📚 Estudiante de Informática</li>
-                        <li>🎂 21 años de edad</li>
+                        <li><a onclick="showContent('tecnologias')">Tecnologías</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Banco Suarez. Todos los derechos reservados. | Supervisado por la Superintendencia de Bancos</p>
-                <p style="margin-top: 0.5rem; font-style: italic; color: #95a5a6;">
-                    💻 Desarrollado con pasión por <strong>Arowarlin Suarez</strong> - Estudiante de Licenciatura en Informática, 21 años | Proyecto Académico Original
-                </p>
+                <p><strong>© 2024 Banco Suarez</strong> - Todos los derechos reservados</p>
+                <p>Desarrollado por <strong>Arowarlin Suarez</strong> - Estudiante de Informática de 21 años</p>
+                <p>Proyecto académico con fines educativos | Universidad: [Nombre de la Universidad]</p>
+                <p><small>Este es un proyecto académico ficticio. No es una institución financiera real.</small></p>
             </div>
         </div>
     </footer>
 
     <script>
-// =============================================================================
-// BANCO SUAREZ WEBSITE - JAVASCRIPT PRINCIPAL
-// Desarrollado por: Arowarlin Suarez
-// =============================================================================
+        // =============================================================================
+        // BANCO SUAREZ - FUNCIONES JAVASCRIPT
+        // Desarrollado por Arowarlin Suarez (21 años)
+        // =============================================================================
 
-// Variables globales
-let currentContent = 'conoce-mas';
-let isMenuOpen = false;
+        // Variables globales
+        let currentContent = 'conoce-mas';
 
-// Funciones principales de navegación
-function showContent(contentId) {
-    // Ocultar todas las secciones de contenido
-    const contentSections = document.querySelectorAll('.content-display');
-    contentSections.forEach(section => {
-        section.classList.remove('active');
-    });
+        // Función para mostrar contenido dinámicamente
+        function showContent(contentId) {
+            // Ocultar contenido actual
+            const currentElement = document.getElementById(`content-${currentContent}`);
+            if (currentElement) {
+                currentElement.classList.remove('active');
+            }
 
-    // Mostrar el contenido seleccionado
-    const targetContent = document.getElementById(`content-${contentId}`);
-    if (targetContent) {
-        targetContent.classList.add('active');
-        
-        // Scroll suave hacia el contenido
-        targetContent.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start',
-            inline: 'nearest'
+            // Mostrar nuevo contenido
+            const newElement = document.getElementById(`content-${contentId}`);
+            if (newElement) {
+                newElement.classList.add('active');
+                currentContent = contentId;
+                
+                // Scroll suave hacia el contenido
+                newElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+
+            // Cerrar menú móvil si está abierto
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu && navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+            }
+        }
+
+        // Función para toggle del menú móvil
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (navMenu) {
+                navMenu.classList.toggle('show');
+                
+                // Cambiar icono del botón
+                if (navMenu.classList.contains('show')) {
+                    mobileBtn.innerHTML = '✕';
+                    mobileBtn.style.transform = 'rotate(180deg)';
+                } else {
+                    mobileBtn.innerHTML = '☰';
+                    mobileBtn.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // Función para actualizar el scroll indicator
+        function updateScrollIndicator() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            
+            const indicator = document.getElementById('scrollIndicator');
+            if (indicator) {
+                indicator.style.width = scrolled + '%';
+            }
+        }
+
+        // Función para manejar el header al hacer scroll
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        }
+
+        // Función para ocultar preloader
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            const body = document.body;
+            
+            if (preloader) {
+                preloader.classList.add('hide');
+                body.classList.remove('loading');
+                
+                // Remover completamente el preloader después de la animación
+                setTimeout(() => {
+                    if (preloader.parentNode) {
+                        preloader.parentNode.removeChild(preloader);
+                    }
+                }, 500);
+            }
+        }
+
+        // Función de inicialización
+        function initializeWebsite() {
+            console.log('🏦 Banco Suarez - Iniciando aplicación...');
+            console.log('👨‍💻 Desarrollado por Arowarlin Suarez (21 años)');
+            
+            // Configurar eventos de scroll
+            window.addEventListener('scroll', () => {
+                updateScrollIndicator();
+                handleHeaderScroll();
+            });
+
+            // Manejar clicks en el logo
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.addEventListener('click', () => showContent('conoce-mas'));
+                logo.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') showContent('conoce-mas');
+                });
+            }
+
+            // Manejar redimensionamiento de ventana
+            window.addEventListener('resize', () => {
+                const navMenu = document.getElementById('navMenu');
+                const mobileBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                    if (mobileBtn) {
+                        mobileBtn.innerHTML = '☰';
+                        mobileBtn.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+
+            // Manejar tecla Escape para cerrar menús
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const navMenu = document.getElementById('navMenu');
+                    const mobileBtn = document.querySelector('.mobile-menu-btn');
+                    
+                    if (navMenu && navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        if (mobileBtn) {
+                            mobileBtn.innerHTML = '☰';
+                            mobileBtn.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                }
+            });
+
+            // Añadir smooth scroll a todos los enlaces internos
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('a[href^="#"]')) {
+                    e.preventDefault();
+                    const target = document.querySelector(e.target.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+
+            // Animaciones de entrada para las tarjetas de servicio
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observar tarjetas de servicio
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Observar elementos de contenido
+            document.querySelectorAll('.content-display').forEach(content => {
+                observer.observe(content);
+            });
+
+            console.log('✅ Banco Suarez - Aplicación inicializada correctamente');
+        }
+
+        // Event Listeners principales
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar la aplicación
+            initializeWebsite();
+            
+            // Ocultar preloader después de cargar
+            setTimeout(hidePreloader, 1500);
         });
 
-        // Actualizar contenido actual
-        currentContent = contentId;
-    }
+        // Manejo de errores globales
+        window.addEventListener('error', (e) => {
+            console.error('❌ Error en Banco Suarez:', e.error);
+        });
 
-    // Cerrar menú móvil si está abierto
-    closeMobileMenu();
-}
-
-function toggleMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (navMenu) {
-        isMenuOpen = !isMenuOpen;
-        
-        if (isMenuOpen) {
-            navMenu.style.display = 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '100%';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.backgroundColor = '#1e3c72';
-            navMenu.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-            mobileMenuBtn.innerHTML = '✕';
-        } else {
-            navMenu.style.display = 'none';
-            mobileMenuBtn.innerHTML = '☰';
-        }
-    }
-}
-
-function closeMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (isMenuOpen && navMenu && mobileMenuBtn) {
-        navMenu.style.display = 'none';
-        mobileMenuBtn.innerHTML = '☰';
-        isMenuOpen = false;
-    }
-}
-
-// Inicialización cuando el DOM está listo
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🏦 Inicializando Banco Suarez Website...');
-    
-    // Mostrar contenido por defecto
-    showContent('conoce-mas');
-    
-    // Configurar menú móvil
-    setupMobileMenu();
-    
-    // Configurar animaciones de loading
-    setTimeout(() => {
-        document.body.classList.remove('loading');
-    }, 1000);
-    
-    console.log('✅ Banco Suarez Website inicializado correctamente');
-});
-
-function setupMobileMenu() {
-    // Mostrar/ocultar botón según tamaño de pantalla
-    function handleResize() {
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (window.innerWidth <= 768) {
-            mobileMenuBtn.style.display = 'block';
-            if (!isMenuOpen) {
-                navMenu.style.display = 'none';
+        // Prevenir el comportamiento por defecto de algunos enlaces
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href="#"]')) {
+                e.preventDefault();
             }
-        } else {
-            mobileMenuBtn.style.display = 'none';
-            navMenu.style.display = 'flex';
-            navMenu.style.position = 'static';
-            navMenu.style.flexDirection = 'row';
-            navMenu.style.backgroundColor = 'transparent';
-            navMenu.style.boxShadow = 'none';
-            isMenuOpen = false;
+        });
+
+        // Función para mejorar la accesibilidad
+        function enhanceAccessibility() {
+            // Añadir role y aria-label donde sea necesario
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach((item, index) => {
+                item.setAttribute('role', 'menuitem');
+                item.setAttribute('tabindex', '0');
+                
+                // Hacer los items navegables con teclado
+                item.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        item.click();
+                    }
+                });
+            });
+
+            // Mejorar navegación con teclado en tarjetas de servicio
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                
+                card.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
         }
-    }
-    
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Ejecutar inmediatamente
-}
 
-// Manejo de clicks fuera del menú móvil
-document.addEventListener('click', function(e) {
-    const navMenu = document.querySelector('.nav-menu');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    
-    if (isMenuOpen && navMenu && mobileMenuBtn && 
-        !navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        closeMobileMenu();
-    }
-});
+        // Función para optimizar rendimiento
+        function optimizePerformance() {
+            // Lazy loading para imágenes (si se añaden en el futuro)
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
 
-// Manejo de tecla ESC para cerrar menú
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isMenuOpen) {
-        closeMobileMenu();
-    }
-});
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
 
-// Scroll indicator
-window.addEventListener('scroll', function() {
-    const scrollIndicator = document.getElementById('scrollIndicator');
-    if (scrollIndicator) {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.offsetHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        scrollIndicator.style.width = scrollPercent + '%';
-    }
-});
+            // Throttle para eventos de scroll
+            let scrollTimer = null;
+            const originalScrollHandler = window.onscroll;
+            
+            window.addEventListener('scroll', () => {
+                if (scrollTimer !== null) {
+                    clearTimeout(scrollTimer);
+                }
+                scrollTimer = setTimeout(() => {
+                    updateScrollIndicator();
+                    handleHeaderScroll();
+                }, 10);
+            });
+        }
 
-console.log('💳 Banco Suarez Website JavaScript cargado correctamente');
-console.log('🔧 Versión: 1.0.0');
-console.log('📅 Desarrollado por: Arowarlin Suarez (21 años)');
+        // Función para efectos adicionales
+        function addEnhancedEffects() {
+            // Efecto parallax sutil para el hero
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero && scrolled < hero.offsetHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+
+            // Efecto de typing para texto del hero (opcional)
+            const heroText = document.querySelector('.hero h1');
+            if (heroText) {
+                const text = heroText.textContent;
+                heroText.textContent = '';
+                let i = 0;
+                
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        heroText.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                
+                // Iniciar efecto después de que se cargue la página
+                setTimeout(typeWriter, 2000);
+            }
+        }
+
+        // Inicializar mejoras adicionales cuando se carga el DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                enhanceAccessibility();
+                optimizePerformance();
+                addEnhancedEffects();
+            }, 100);
+        });
+
+        // Función para estadísticas de uso (simulada)
+        function trackUserInteraction(action, element) {
+            // En una aplicación real, esto enviaría datos a analytics
+            console.log(`📊 Interacción: ${action} en ${element}`);
+        }
+
+        // Añadir tracking a elementos importantes
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.dropdown-item')) {
+                trackUserInteraction('click', 'dropdown-item');
+            } else if (e.target.matches('.service-card')) {
+                trackUserInteraction('click', 'service-card');
+            } else if (e.target.matches('.cta-button')) {
+                trackUserInteraction('click', 'cta-button');
+            }
+        });
+
+        // Mensaje de bienvenida en consola
+        console.log(`
+        🏦 ===================================
+           BANCO SUAREZ - BIENVENIDO
+        ===================================
+        👨‍💻 Desarrollado por: Arowarlin Suarez
+        🎂 Edad: 21 años
+        🎓 Carrera: Ingeniería en Informática
+        📅 Año: 2024
+        🚀 Versión: 1.0.0
+        ===================================
+        `);
+
+        // Función para mostrar información del desarrollador
+        function showDeveloperInfo() {
+            console.log(`
+            👨‍💻 INFORMACIÓN DEL DESARROLLADOR
+            ================================
+            Nombre: Arowarlin Suarez
+            Edad: 21 años
+            Carrera: Ingeniería en Informática
+            Proyecto: Banco Suarez (Proyecto Académico)
+            Tecnologías: HTML5, CSS3, JavaScript ES6+
+            Características: Responsive Design, Accessibility, Performance Optimized
+            ================================
+            `);
+        }
+
+        // Disponibilizar función globalmente
+        window.showDeveloperInfo = showDeveloperInfo;
+
+        // Función final de validación
+        function validateWebsite() {
+            const requiredElements = [
+                'preloader',
+                'scrollIndicator', 
+                'header',
+                'navMenu',
+                'content-conoce-mas'
+            ];
+
+            let allValid = true;
+            requiredElements.forEach(id => {
+                if (!document.getElementById(id)) {
+                    console.error(`❌ Elemento requerido no encontrado: ${id}`);
+                    allValid = false;
+                }
+            });
+
+            if (allValid) {
+                console.log('✅ Todos los elementos principales están presentes');
+            }
+
+            return allValid;
+        }
+
+        // Ejecutar validación al finalizar la carga
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                validateWebsite();
+                console.log('🎉 Banco Suarez cargado completamente');
+            }, 2000);
+        });
+
+    </script>
+</body>
+</html>
